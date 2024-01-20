@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "831067867737",
+    "project_id": "instagram-tut-833a0",
+    "storage_bucket": "instagram-tut-833a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831067867737:android:4de60960131c80a2423f48",
+        "android_client_info": {
+          "package_name": "com.example.instagram_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-gXG-gFGFf4xyCOgXyvltHt2vji9JeuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
