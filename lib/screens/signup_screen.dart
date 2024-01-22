@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_firebase/resources/auth_methods.dart';
+import 'package:instagram_firebase/screens/home_screen.dart';
 import 'package:instagram_firebase/utiils/colors.dart';
 import 'package:instagram_firebase/utiils/utils.dart';
 import 'package:instagram_firebase/widgets/textfield.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -57,6 +62,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
     if (res != 'success') {
       showSnackBar(res, context);
+    } else {
+      Get.off(() => HomeScreen());
     }
   }
 
@@ -135,7 +142,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.circular(8)),
                     color: blueColor),
                 child: _isLoading
-                    ? Center(child: CircularProgressIndicator(color: primaryColor,))
+                    ? Center(
+                        child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ))
                     : Text("Sign up"),
               ),
             ),
@@ -150,10 +160,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Text("Don't have an account? "),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => LoginScreen());
+                  },
                   child: Container(
                     child: Text(
-                      "Sign up",
+                      "Log in ",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),

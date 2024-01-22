@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:instagram_firebase/resources/auth_methods.dart';
+import 'package:instagram_firebase/screens/home_screen.dart';
+import 'package:instagram_firebase/screens/signup_screen.dart';
 import 'package:instagram_firebase/utiils/colors.dart';
 import 'package:instagram_firebase/utiils/utils.dart';
 import 'package:instagram_firebase/widgets/textfield.dart';
@@ -33,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String res = await AuthMethods().loginUser(
         email: _emailController.text, password: _passController.text);
     if (res == "success") {
+      Get.off(()=> HomeScreen());
     } else {
       showSnackBar(res, context);
     }
@@ -101,7 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text("Don't have an account? "),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => SignUpScreen());
+                  },
                   child: Container(
                     child: Text(
                       "Sign up",
